@@ -19,7 +19,8 @@ features = []
 for i in data[1:]:
     print(i["latitude"], i["longitude"])
     point = Point((float(i["longitude"]), float(i["latitude"])))
-    features.append(Feature(geometry=point, properties={"test": "test"}))
+    features.append(Feature(geometry=point, properties={
+                    "DepthInMeters": i["DepthInMeters"], "Locality": i["Locality"]}))
 
 feature_collection = FeatureCollection(features)
 
